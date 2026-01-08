@@ -501,12 +501,7 @@
                     ขอบคุณที่ให้ความสนใจครับ!<br>
                     ระบบบันทึกข้อมูลของคุณเรียบร้อยแล้ว
                 </p>
-                <div
-                    class="mt-4 sm:mt-6 md:mt-8 p-3 sm:p-4 bg-slate-50 rounded-xl border border-slate-200 w-full max-w-xs sm:max-w-sm">
-                    <p class="text-xs sm:text-sm md:text-base font-medium text-slate-700">หากต้องการแก้ไขหรือมีข้อสงสัย
-                    </p>
-                    <p class="text-[10px] sm:text-xs md:text-sm text-slate-500 mt-1">ติดต่อทีมงานได้ที่ LINE: @Aiya</p>
-                </div>
+                <!-- Contact info removed as requested -->
             </div>
 
         </div>
@@ -579,9 +574,11 @@
                 // Hide initial step and show 'Already Submitted'
                 document.getElementById('step1').classList.add('hidden');
                 document.getElementById('alreadySubmittedStep').classList.remove('hidden');
-                // Hide header info
-                if (document.getElementById('stepDisplay')) {
-                    document.getElementById('stepDisplay').parentElement.parentElement.style.display = 'none';
+
+                // Hide ENTIRE header (including progress bar)
+                const header = document.querySelector('.bg-white.z-10');
+                if (header) {
+                    header.style.display = 'none';
                 }
                 return; // Stop further initialization
             }
@@ -787,8 +784,11 @@
                         <span class="text-[10px] sm:text-xs text-slate-400 mt-2 block">(หากไม่เจอ ลองเช็คใน Junk/Spam นะครับ)</span>
                     `;
 
-                    // Hide header info on success
-                    document.getElementById('stepDisplay').parentElement.parentElement.style.display = 'none';
+                    // Hide ENTIRE header on success (including progress bar)
+                    const header = document.querySelector('.bg-white.z-10');
+                    if (header) {
+                        header.style.display = 'none';
+                    }
                 })
                 .catch(error => {
                     console.error('Error:', error);
@@ -847,8 +847,11 @@
                         <span class="text-[10px] sm:text-xs text-slate-400 mt-2 block">หากต้องการ Template สามารถติดต่อทีมงานได้ภายหลัง</span>
                     `;
 
-                    // Hide header info on success
-                    document.getElementById('stepDisplay').parentElement.parentElement.style.display = 'none';
+                    // Hide ENTIRE header on success (including progress bar)
+                    const header = document.querySelector('.bg-white.z-10');
+                    if (header) {
+                        header.style.display = 'none';
+                    }
                 })
                 .catch(error => {
                     console.error('Error:', error);
