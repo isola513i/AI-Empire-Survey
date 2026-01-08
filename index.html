@@ -614,11 +614,15 @@
         function toggleDropdown() {
             const menu = document.getElementById('dropdownMenu');
             const arrow = document.getElementById('dropdownArrow');
+
+            // Check current state from class to be sure (or just toggle the boolean)
+            // But better to just toggle state variable and sync UI
             isDropdownOpen = !isDropdownOpen;
 
             if (isDropdownOpen) {
                 menu.classList.remove('hidden');
                 arrow.style.transform = 'rotate(180deg)';
+                // Close when clicking outside logic handles the rest
             } else {
                 menu.classList.add('hidden');
                 arrow.style.transform = 'rotate(0deg)';
@@ -631,8 +635,12 @@
             document.getElementById('dropdownText').classList.remove('text-slate-500');
             document.getElementById('dropdownText').classList.add('text-slate-700');
 
-            // Close dropdown
-            toggleDropdown();
+            // Explicitly Close dropdown
+            const menu = document.getElementById('dropdownMenu');
+            const arrow = document.getElementById('dropdownArrow');
+            isDropdownOpen = false;
+            menu.classList.add('hidden');
+            arrow.style.transform = 'rotate(0deg)';
 
             // Hide validation error if shown
             const errorEl = document.getElementById('step3Error');
@@ -857,6 +865,11 @@
                 if (target === 'submit') {
                     submitSurvey();
                 } else if (target === 'nextStep3') {
+                    // Start: Allow Shift+Enter for new line in Pain Point textarea
+                    if (event.shiftKey) {
+                        return true;
+                    }
+                    // End
                     validateStep3();
                 } else if (target === 'nextStep4') {
                     // For Step 4 (Additional Feedback), allowing creating new line with Shift+Enter might be good, 
