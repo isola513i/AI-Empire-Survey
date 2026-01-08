@@ -489,6 +489,26 @@
                 </div>
             </div>
 
+            <!-- Already Submitted Screen (NEW) -->
+            <div id="alreadySubmittedStep"
+                class="hidden fade-in h-full flex flex-col items-center justify-center text-center py-4 sm:py-6 md:py-8">
+                <div
+                    class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-blue-100 text-blue-500 rounded-full flex items-center justify-center mb-4 sm:mb-6 text-3xl sm:text-4xl md:text-5xl shadow-sm">
+                    📝
+                </div>
+                <h2 class="text-lg sm:text-xl md:text-2xl font-bold text-slate-800 mb-2">คุณได้ทำแบบสอบถามแล้ว</h2>
+                <p class="text-slate-600 text-sm sm:text-base mb-6 sm:mb-8 max-w-xs mx-auto">
+                    ขอบคุณที่ให้ความสนใจครับ!<br>
+                    ระบบบันทึกข้อมูลของคุณเรียบร้อยแล้ว
+                </p>
+                <div
+                    class="mt-4 sm:mt-6 md:mt-8 p-3 sm:p-4 bg-slate-50 rounded-xl border border-slate-200 w-full max-w-xs sm:max-w-sm">
+                    <p class="text-xs sm:text-sm md:text-base font-medium text-slate-700">หากต้องการแก้ไขหรือมีข้อสงสัย
+                    </p>
+                    <p class="text-[10px] sm:text-xs md:text-sm text-slate-500 mt-1">ติดต่อทีมงานได้ที่ LINE: @Aiya</p>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -496,7 +516,7 @@
         // ============================================
         // ⚠️ วาง URL APPS SCRIPT ของคุณที่นี่
         // ============================================
-        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbynxrxVBkZksJ7PyXSRJFKrnDPFxjfQtRnuJqTAH4qQF_ECuJJxRE0U06ErZiyfxPXfpA/exec";
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyNFg8MUg1Wy_qNXqQmayLclG1WsO7Jaobi3FXL5e9ZV27_mIBmUaELr-0yzkKiy2NW3A/exec";
 
         // Core State
         let currentStep = 1;
@@ -551,6 +571,23 @@
 
         // Initialize ratings on page load
         document.addEventListener('DOMContentLoaded', initRatings);
+
+        // Initialize Dropdown and Check LocalStorage
+        document.addEventListener('DOMContentLoaded', function () {
+            // Check if user already submitted
+            if (localStorage.getItem('aiEmpireSurveySubmitted') === 'true') {
+                // Hide initial step and show 'Already Submitted'
+                document.getElementById('step1').classList.add('hidden');
+                document.getElementById('alreadySubmittedStep').classList.remove('hidden');
+                // Hide header info
+                if (document.getElementById('stepDisplay')) {
+                    document.getElementById('stepDisplay').parentElement.parentElement.style.display = 'none';
+                }
+                return; // Stop further initialization
+            }
+
+            initDropdown();
+        });
 
         function validateStep2() {
             const rating1 = document.getElementById('rating1Input').value;
@@ -732,6 +769,9 @@
                     document.querySelectorAll('.step-content').forEach(el => el.classList.add('hidden'));
                     document.getElementById('successStep').classList.remove('hidden');
 
+                    // Set LocalStorage Flag
+                    localStorage.setItem('aiEmpireSurveySubmitted', 'true');
+
                     // Set dynamic success message
                     document.getElementById('successMessage').innerHTML = `
                         เราได้ส่ง Template ไปที่อีเมล<br>
@@ -788,6 +828,9 @@
                     document.getElementById('loading').classList.add('hidden');
                     document.querySelectorAll('.step-content').forEach(el => el.classList.add('hidden'));
                     document.getElementById('successStep').classList.remove('hidden');
+
+                    // Set LocalStorage Flag
+                    localStorage.setItem('aiEmpireSurveySubmitted', 'true');
 
                     // Set dynamic success message (no email version)
                     document.getElementById('successMessage').innerHTML = `
