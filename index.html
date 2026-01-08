@@ -530,6 +530,7 @@
             // Update UI
             document.getElementById('stepDisplay').innerText = step;
             updateProgressBar(step);
+            saveDraft(); // Save progress on step change
         }
 
         function updateProgressBar(step) {
@@ -562,6 +563,8 @@
                     // Hide validation error if shown
                     const errorEl = document.getElementById('step2Error');
                     if (errorEl) errorEl.classList.add('hidden');
+
+                    saveDraft(); // Save rating change
                 });
             });
         }
@@ -586,7 +589,137 @@
             }
 
             initDropdown();
+            // Load Draft if exists
+            loadDraft();
+            // Setup Auto-save listeners
+            setupAutoSave();
         });
+
+        // --- Auto-Save Logic (NEW) ---
+        const DRAFT_KEY = 'aiEmpireSurveyDraft';
+
+        function saveDraft() {
+            // Get current step from stepDisplay text if possible, or infer
+            const stepText = document.getElementById('stepDisplay')?.innerText || '1';
+            const currentStep = parseInt(stepText);
+
+            const data = {
+                step: currentStep,
+                rating1: document.getElementById('rating1Input')?.value || "0",
+                rating2: document.getElementById('rating2Input')?.value || "0",
+                rating3: document.getElementById('rating3Input')?.value || "0",
+                businessType: document.getElementById('businessTypeInput')?.value || "",
+                otherBusiness: document.getElementById('otherBusinessInput')?.value || "",
+                desiredTool: document.getElementById('desiredToolInput')?.value || "", // JSON string
+                otherTool: document.getElementById('otherToolInput')?.value || "",
+                painPoint: document.getElementById('painPointInput')?.value || "",
+                additionalFeedback: document.getElementById('additionalFeedback')?.value || "",
+                email: document.getElementById('emailInput')?.value || ""
+            };
+
+            localStorage.setItem(DRAFT_KEY, JSON.stringify(data));
+        }
+
+        function loadDraft() {
+            const saved = localStorage.getItem(DRAFT_KEY);
+            if (!saved) return;
+
+            try {
+                const data = JSON.parse(saved);
+
+                // Restore Inputs
+                if (data.rating1) document.getElementById('rating1Input').value = data.rating1;
+                if (data.rating2) document.getElementById('rating2Input').value = data.rating2;
+                if (data.rating3) document.getElementById('rating3Input').value = data.rating3;
+
+                // Update stars visual
+                updateStarVisuals('rating1', data.rating1);
+                updateStarVisuals('rating2', data.rating2);
+                updateStarVisuals('rating3', data.rating3);
+
+                if (data.businessType) {
+                    document.getElementById('businessTypeInput').value = data.businessType;
+                    document.getElementById('selectedBusinessText').innerText = (data.businessType === 'Other') ? 'อื่นๆ (ระบุ)' : data.businessType;
+                    if (data.businessType === 'Other') {
+                        document.getElementById('otherBusinessInput').parentElement.classList.remove('hidden');
+                    }
+                }
+                if (data.otherBusiness) document.getElementById('otherBusinessInput').value = data.otherBusiness;
+
+                // Restore Tools
+                if (data.desiredTool) {
+                    document.getElementById('desiredToolInput').value = data.desiredTool;
+                    let tools = [];
+                    try { tools = JSON.parse(data.desiredTool) } catch (e) { }
+
+                    // Re-apply visual selection
+                    document.querySelectorAll('.tool-card').forEach(card => {
+                        // Check if card matches any selected tool
+                        // We need a way to match card to tool name. The onclick has the name.
+                        // Let's use the text content or a dedicated attribute if we had it. 
+                        // Since we just have onclick="selectTool(this, 'Name')", we can't easily query by name 
+                        // unless we parse the onclick attribute or rely on text (which might differ).
+                        // Harder part. But wait, `selectTool` uses `onclick`.
+                        // Let's just restore the Set and classes manually based on known mapping or modify HTML to have data attributes.
+                        // For now, let's try to match by onclick attribute string content.
+                        const onclickAttr = card.getAttribute('onclick');
+                        if (onclickAttr) {
+                            const nameMatch = onclickAttr.match(/'([^']+)'/);
+                            if (nameMatch && tools.includes(nameMatch[1])) {
+                                card.classList.add('selected');
+                                selectedToolsWrapper.add(nameMatch[1]);
+                            }
+                        }
+                    });
+
+                    if (tools.includes('Other')) {
+                        document.getElementById('otherToolDiv').classList.remove('hidden');
+                    }
+                }
+                if (data.otherTool) document.getElementById('otherToolInput').value = data.otherTool;
+
+                if (data.painPoint) document.getElementById('painPointInput').value = data.painPoint;
+                if (data.additionalFeedback) document.getElementById('additionalFeedback').value = data.additionalFeedback;
+                if (data.email) document.getElementById('emailInput').value = data.email;
+
+                // Restore Step (Optional: Jump to saved step)
+                // If step > 1, we can try to jump.
+                if (data.step > 1 && data.step <= 5) {
+                    changeStep(data.step);
+                }
+
+            } catch (e) {
+                console.error("Auto-save load error", e);
+            }
+        }
+
+        function setupAutoSave() {
+            const inputs = document.querySelectorAll('input, textarea, select');
+            inputs.forEach(input => {
+                input.addEventListener('input', saveDraft);
+                input.addEventListener('change', saveDraft);
+            });
+            // Stars are not inputs, but they update hidden inputs using setRating. 
+            // We should update setRating to call saveDraft or manually trigger change.
+            // setRating calls update... let's just add saveDraft call inside setRating? 
+            // Or easier: generic listener on document changes? No.
+            // We can just add a call to saveDraft at the end of `changeStep` to save the new step number.
+        }
+
+        // Helper to update star visuals on load
+        function updateStarVisuals(groupName, value) {
+            const stars = document.querySelectorAll(`#${groupName} .star-btn`);
+            stars.forEach(star => {
+                const starVal = parseInt(star.dataset.value);
+                if (starVal <= value) {
+                    star.innerHTML = '★';
+                    star.classList.replace('text-slate-200', 'text-yellow-400');
+                } else {
+                    star.innerHTML = '☆';
+                    star.classList.replace('text-yellow-400', 'text-slate-200');
+                }
+            });
+        }
 
         function validateStep2() {
             const rating1 = document.getElementById('rating1Input').value;
@@ -653,6 +786,7 @@
             } else {
                 otherDiv.classList.add('hidden');
             }
+            saveDraft(); // Save business selection
         }
 
         // Initialize dropdown items click handlers
@@ -703,6 +837,7 @@
             } else {
                 otherToolDiv.classList.add('hidden');
             }
+            saveDraft(); // Save tool selection
         }
 
         function validateStep3() {
@@ -800,6 +935,8 @@
 
                     // Set LocalStorage Flag
                     localStorage.setItem('aiEmpireSurveySubmitted', 'true');
+                    // Remove Draft
+                    localStorage.removeItem(DRAFT_KEY);
 
                     // Set dynamic success message
                     document.getElementById('successMessage').innerHTML = `
@@ -871,6 +1008,8 @@
 
                     // Set LocalStorage Flag
                     localStorage.setItem('aiEmpireSurveySubmitted', 'true');
+                    // Remove Draft
+                    localStorage.removeItem(DRAFT_KEY);
 
                     // Set dynamic success message (no email version)
                     document.getElementById('successMessage').innerHTML = `
