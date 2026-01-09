@@ -98,10 +98,10 @@
             <!-- Step 1: Welcome -->
             <div id="step1"
                 class="step-content fade-in h-full flex flex-col justify-center text-center py-2 sm:py-4 md:py-6">
-                <!-- AiYa Logo -->
-                <div
-                    class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 mx-auto mb-3 sm:mb-4 md:mb-5 rounded-2xl overflow-hidden shadow-lg">
-                    <img src="aiya-logo.png" alt="AIYA" class="w-full h-full object-cover">
+                <!-- AiYa Logo (Updated) -->
+                <div class="mb-4 sm:mb-6 md:mb-8 text-center">
+                    <img src="ai-ignite-logo.png" alt="AI Ignite Club"
+                        class="h-16 sm:h-20 md:h-24 mx-auto object-contain">
                 </div>
 
                 <!-- Event Badge -->
@@ -112,26 +112,29 @@
                 </div>
 
                 <!-- Main Title -->
-                <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-slate-800 mb-1">Master the AI Empire</h1>
-                <p
-                    class="text-lg sm:text-xl md:text-2xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-3 sm:mb-4">
+                <h1 class="text-xl sm:text-2xl md:text-3xl font-bold mb-1">
+                    <span class="text-slate-900">Master the</span>
+                    <span class="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">AI
+                        Empire</span>
+                </h1>
+                <p class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 mb-3 sm:mb-4">
                     Build Your Business</p>
 
                 <!-- Promotional Caption -->
                 <div class="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed mb-3 sm:mb-4 px-2">
-                    <p class="mb-1 sm:mb-2">ธุรกิจที่ใช้แรงงานคนเดิมๆ จะค่อยๆ หายไป</p>
-                    <p class="font-semibold text-slate-700">มารู้ ปรับตัว ก่อนที่จะถูกทิ้งไว้ข้างหลัง</p>
+                    <p class="mb-1 sm:mb-2 font-semibold">โลกถล่มด้วย AI...</p>
+                    <p class="mb-1 sm:mb-2">ธุรกิจที่ใช้แรงงานคนแบบเดิมจะค่อยๆ หายไป</p>
+                    <p class="font-semibold text-slate-700">คุณจะปรับตัวหรือจะถูกทิ้งไว้ข้างหลัง</p>
                 </div>
 
-                <!-- Special Invitation Badge -->
+                <!-- Special Invitation Badge (Updated to Thank You) -->
                 <div
                     class="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-xl p-2 sm:p-3 md:p-4 mb-3 sm:mb-4 mx-2">
-                    <p class="text-amber-700 font-semibold text-[10px] sm:text-xs md:text-sm mb-1">🎯 INVITATION TEASER
-                    </p>
+                    <p class="text-amber-700 font-semibold text-[10px] sm:text-xs md:text-sm mb-1">🙏 ขอขอบคุณ</p>
                     <p class="text-slate-600 text-[10px] sm:text-[11px] md:text-sm leading-relaxed">
-                        ขอเชิญนักการตลาด สื่อมวลชน และ Influencer<br>
-                        ร่วม Teaser Session คลาส AI Bootcamp<br>
-                        <span class="text-amber-600 font-medium">รอบพิเศษ (จำกัด 30 ที่นั่ง)</span>
+                        ขอบคุณทุกท่านที่มาร่วมงานในวันนี้<br>
+                        ทางเราอยากรบกวนเวลาสั้นๆ ทำแบบสอบถาม<br>
+                        <span class="text-amber-600 font-medium">เพื่อรับ Template และสิทธิพิเศษ</span>
                     </p>
                 </div>
 
@@ -322,55 +325,116 @@
                     <label class="block text-sm font-medium text-slate-700 mb-3">อยากให้ AI ช่วยงานด้านไหน? <span
                             class="text-red-400">*</span> <span
                             class="text-slate-400 font-normal text-xs">(เลือกได้มากกว่า 1 ข้อ)</span></label>
-                    <div class="grid grid-cols-2 gap-2 sm:gap-3">
+                    <div class="grid grid-cols-2 gap-3 sm:gap-4">
+                        <!-- Card 1 -->
                         <div onclick="selectTool(this, 'ตอบแชทลูกค้า')"
-                            class="tool-card p-2 sm:p-3 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-blue-400 hover:bg-blue-50 transition-all">
-                            <div class="text-xl sm:text-2xl mb-1 sm:mb-2 text-center">💬</div>
-                            <div class="text-[10px] sm:text-xs font-semibold text-center text-slate-700">ตอบแชทลูกค้า
+                            class="tool-card relative p-3 sm:p-4 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-purple-400 hover:bg-purple-50 transition-all group">
+                            <!-- Checkmark Badge -->
+                            <div
+                                class="checkmark hidden absolute -top-2 -right-2 bg-purple-600 text-white rounded-full p-1 shadow-sm transform scale-90 sm:scale-100">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 sm:h-4 sm:w-4"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
                             </div>
-                            <div class="text-[9px] sm:text-[10px] font-normal text-center text-slate-500">ให้ AI ตอบ
+                            <div
+                                class="text-2xl sm:text-3xl mb-2 text-center group-hover:scale-110 transition-transform">
+                                💬</div>
+                            <div class="text-xs sm:text-sm font-bold text-center text-slate-700">ตอบแชทลูกค้า</div>
+                            <div class="text-[10px] sm:text-xs font-normal text-center text-slate-500">ให้ AI ตอบ
                                 LINE/FB แทน</div>
                         </div>
+
+                        <!-- Card 2 -->
                         <div onclick="selectTool(this, 'นับสต็อกสินค้า')"
-                            class="tool-card p-2 sm:p-3 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-blue-400 hover:bg-blue-50 transition-all">
-                            <div class="text-xl sm:text-2xl mb-1 sm:mb-2 text-center">📦</div>
-                            <div class="text-[10px] sm:text-xs font-semibold text-center text-slate-700">นับสต็อกสินค้า
+                            class="tool-card relative p-3 sm:p-4 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-purple-400 hover:bg-purple-50 transition-all group">
+                            <div
+                                class="checkmark hidden absolute -top-2 -right-2 bg-purple-600 text-white rounded-full p-1 shadow-sm transform scale-90 sm:scale-100">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 sm:h-4 sm:w-4"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
                             </div>
-                            <div class="text-[9px] sm:text-[10px] font-normal text-center text-slate-500">
-                                ของเหลือเท่าไหร่ รู้ทัน</div>
+                            <div
+                                class="text-2xl sm:text-3xl mb-2 text-center group-hover:scale-110 transition-transform">
+                                📦</div>
+                            <div class="text-xs sm:text-sm font-bold text-center text-slate-700">นับสต็อกสินค้า</div>
+                            <div class="text-[10px] sm:text-xs font-normal text-center text-slate-500">
+                                รู้ทันของเหลือ/ขาด</div>
                         </div>
+
+                        <!-- Card 3 -->
                         <div onclick="selectTool(this, 'จองคิวอัตโนมัติ')"
-                            class="tool-card p-2 sm:p-3 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-blue-400 hover:bg-blue-50 transition-all">
-                            <div class="text-xl sm:text-2xl mb-1 sm:mb-2 text-center">📅</div>
-                            <div class="text-[10px] sm:text-xs font-semibold text-center text-slate-700">จองคิวอัตโนมัติ
+                            class="tool-card relative p-3 sm:p-4 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-purple-400 hover:bg-purple-50 transition-all group">
+                            <div
+                                class="checkmark hidden absolute -top-2 -right-2 bg-purple-600 text-white rounded-full p-1 shadow-sm transform scale-90 sm:scale-100">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 sm:h-4 sm:w-4"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
                             </div>
-                            <div class="text-[9px] sm:text-[10px] font-normal text-center text-slate-500">ลูกค้าจองเอง
-                                24 ชม.</div>
+                            <div
+                                class="text-2xl sm:text-3xl mb-2 text-center group-hover:scale-110 transition-transform">
+                                📅</div>
+                            <div class="text-xs sm:text-sm font-bold text-center text-slate-700">จองคิวอัตโนมัติ</div>
+                            <div class="text-[10px] sm:text-xs font-normal text-center text-slate-500">ลูกค้าจองเอง 24
+                                ชม.</div>
                         </div>
+
+                        <!-- Card 4 -->
                         <div onclick="selectTool(this, 'สรุปยอดขาย')"
-                            class="tool-card p-2 sm:p-3 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-blue-400 hover:bg-blue-50 transition-all">
-                            <div class="text-xl sm:text-2xl mb-1 sm:mb-2 text-center">📊</div>
-                            <div class="text-[10px] sm:text-xs font-semibold text-center text-slate-700">สรุปยอดขาย
+                            class="tool-card relative p-3 sm:p-4 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-purple-400 hover:bg-purple-50 transition-all group">
+                            <div
+                                class="checkmark hidden absolute -top-2 -right-2 bg-purple-600 text-white rounded-full p-1 shadow-sm transform scale-90 sm:scale-100">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 sm:h-4 sm:w-4"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
                             </div>
-                            <div class="text-[9px] sm:text-[10px] font-normal text-center text-slate-500">ดูกำไร-ขาดทุน
+                            <div
+                                class="text-2xl sm:text-3xl mb-2 text-center group-hover:scale-110 transition-transform">
+                                📊</div>
+                            <div class="text-xs sm:text-sm font-bold text-center text-slate-700">สรุปยอดขาย</div>
+                            <div class="text-[10px] sm:text-xs font-normal text-center text-slate-500">ดูกำไร-ขาดทุน
                                 ง่ายๆ</div>
                         </div>
-                        <!-- Other Tool -->
-                        <div onclick="selectTool(this, 'Other')"
-                            class="tool-card col-span-2 p-2 sm:p-3 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-blue-400 hover:bg-blue-50 transition-all">
-                            <div class="flex items-center justify-center gap-2">
-                                <div class="text-lg sm:text-xl">✨</div>
-                                <div class="text-[10px] sm:text-xs font-semibold text-slate-700">อื่นๆ <span
-                                        class="font-normal text-slate-500">(โปรดระบุ)</span></div>
+
+                        <!-- Other Tool (Integrated Input) -->
+                        <div onclick="selectTool(this, 'Other')" id="otherToolCard"
+                            class="tool-card relative col-span-2 p-3 sm:p-4 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-purple-400 hover:bg-purple-50 transition-all group flex flex-col items-center justify-center min-h-[80px]">
+
+                            <div
+                                class="checkmark hidden absolute -top-2 -right-2 bg-purple-600 text-white rounded-full p-1 shadow-sm transform scale-90 sm:scale-100">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 sm:h-4 sm:w-4"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
                             </div>
+
+                            <div id="otherToolLabel" class="flex items-center gap-2">
+                                <span class="text-xl sm:text-2xl">✨</span>
+                                <span class="text-xs sm:text-sm font-bold text-slate-700">อื่นๆ (โปรดระบุ)</span>
+                            </div>
+
+                            <!-- Input Field (Initially Hidden) -->
+                            <div id="otherToolInputWrapper" class="hidden w-full mt-2 animate-fade-in-up">
+                                <input type="text" id="otherToolInput"
+                                    class="w-full p-2 text-sm text-center bg-white border border-purple-200 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none placeholder-slate-400"
+                                    placeholder="เช่น ทำบัญชี, ออกใบเสร็จ..." onclick="event.stopPropagation()"
+                                    onkeypress="handleEnter(event, 'painPointInput')">
+                            </div>
+
                         </div>
-                    </div>
-                    <!-- Hidden Other Tool Input -->
-                    <div id="otherToolDiv" class="hidden mt-3">
-                        <input type="text" id="otherToolInput"
-                            class="w-full p-3 bg-white border border-blue-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none text-base sm:text-sm placeholder-slate-400"
-                            placeholder="เช่น ทำบัญชี, ออกใบเสร็จอัตโนมัติ, วิเคราะห์ข้อมูล..."
-                            onkeypress="handleEnter(event, 'painPointInput')">
                     </div>
                     <input type="hidden" id="desiredToolInput">
                 </div>
@@ -628,6 +692,143 @@
             }
         }
 
+        // --- Auto-Save Logic ---
+        function saveDraft() {
+            // Don't save if already submitted
+            if (localStorage.getItem('aiEmpireSurveySubmitted') === 'true') return;
+
+            const draft = {
+                step: currentStep,
+                rating1: document.getElementById('rating1Input').value,
+                rating2: document.getElementById('rating2Input').value,
+                rating3: document.getElementById('rating3Input').value,
+                businessType: document.getElementById('businessTypeInput').value,
+                otherBusiness: document.getElementById('otherBusinessInput').value,
+                desiredTools: document.getElementById('desiredToolInput').value,
+                otherTool: document.getElementById('otherToolInput').value,
+                painPoint: document.getElementById('painPointInput').value,
+                additionalFeedback: document.getElementById('additionalFeedback').value,
+                email: document.getElementById('emailInput').value
+            };
+            localStorage.setItem('aiEmpireSurveyDraft', JSON.stringify(draft));
+        }
+
+        function loadDraft() {
+            // Don't load if already submitted
+            if (localStorage.getItem('aiEmpireSurveySubmitted') === 'true') return;
+
+            const draftJson = localStorage.getItem('aiEmpireSurveyDraft');
+            if (!draftJson) return;
+
+            try {
+                const draft = JSON.parse(draftJson);
+
+                // Helper to safely set value
+                const setVal = (id, val) => {
+                    const el = document.getElementById(id);
+                    if (el) el.value = val || '';
+                };
+
+                setVal('rating1Input', draft.rating1);
+                setVal('rating2Input', draft.rating2);
+                setVal('rating3Input', draft.rating3);
+                setVal('businessTypeInput', draft.businessType);
+                setVal('otherBusinessInput', draft.otherBusiness);
+                setVal('desiredToolInput', draft.desiredTools);
+                setVal('otherToolInput', draft.otherTool);
+                setVal('painPointInput', draft.painPoint);
+                setVal('additionalFeedback', draft.additionalFeedback);
+                setVal('emailInput', draft.email);
+
+                // Restore UI - Step 2 (Ranges)
+                // Assuming updateRating is a function that visually updates the rating buttons
+                // If not, we need to simulate clicks or directly manipulate classes
+                // For now, let's assume a helper `updateRating` or we'll manually update
+                ['rating1', 'rating2', 'rating3'].forEach(id => {
+                    const val = draft[id];
+                    if (val && val !== '0') { // Only update if a value was selected
+                        const btn = document.querySelector(`[data-group="${id}"][data-value="${val}"]`);
+                        if (btn) {
+                            // Simulate click to trigger existing logic
+                            btn.click();
+                        }
+                    }
+                });
+
+                // Restore UI - Step 3 - Business Dropdown
+                if (draft.businessType) {
+                    const dropdownItems = document.querySelectorAll('.dropdown-item');
+                    dropdownItems.forEach(item => {
+                        if (item.dataset.value === draft.businessType) {
+                            // Simulate click to trigger existing logic
+                            item.click();
+                        }
+                    });
+                    if (draft.businessType === 'Other') {
+                        document.getElementById('otherBusinessDiv').classList.remove('hidden');
+                    }
+                }
+
+                // Restore UI - Step 3 - Tool Selection
+                if (draft.desiredTools) {
+                    try {
+                        const tools = JSON.parse(draft.desiredTools);
+                        const cards = document.querySelectorAll('.tool-card'); // Assumes onclick calls selectTool(this, 'name')
+
+                        // Manually re-populating Set and triggering selectTool for visual update
+                        tools.forEach(tool => {
+                            // Find card by tool name (this is a bit fragile if tool names aren't unique or easily identifiable)
+                            // A more robust solution would be to add data-tool-name to the card itself
+                            cards.forEach(card => {
+                                const onClickAttr = card.getAttribute('onclick');
+                                if (onClickAttr && onClickAttr.includes(`'${tool}'`)) {
+                                    // Call selectTool to re-apply styles and add to selectedToolsWrapper Set
+                                    // Ensure it's not already selected to avoid toggling off
+                                    if (!card.classList.contains('selected')) {
+                                        selectTool(card, tool);
+                                    }
+                                }
+                            });
+                        });
+
+                        // If 'Other' was selected, ensure input is shown and filled
+                        if (tools.includes('Other')) {
+                            const inputWrapper = document.getElementById('otherToolInputWrapper');
+                            if (inputWrapper) inputWrapper.classList.remove('hidden');
+                        }
+
+                    } catch (e) { console.error('Error loading tools', e); }
+                }
+
+                // Restore Step (Optional - User might prefer to start at 1, but let's go to saved step if > 1)
+                if (draft.step && draft.step > 1) {
+                    changeStep(draft.step);
+                }
+
+            } catch (e) {
+                console.error('Error loading draft', e);
+                localStorage.removeItem('aiEmpireSurveyDraft'); // Clear corrupt data
+            }
+        }
+
+        // --- End Auto-Save Logic ---
+
+        // Modified Change Step to Save
+        const originalChangeStep = changeStep;
+        changeStep = function (step) {
+            originalChangeStep(step);
+            saveDraft();
+        }
+
+        // Add Input Listeners
+        function initAutoSave() {
+            const inputs = document.querySelectorAll('input:not([type="radio"]):not([type="checkbox"]), textarea');
+            inputs.forEach(input => {
+                input.addEventListener('input', saveDraft);
+                input.addEventListener('change', saveDraft); // For inputs like email, number, etc.
+            });
+        }
+
         function selectDropdownItem(value, text) {
             document.getElementById('businessTypeInput').value = value;
             document.getElementById('dropdownText').textContent = text;
@@ -653,6 +854,7 @@
             } else {
                 otherDiv.classList.add('hidden');
             }
+            saveDraft(); // Save on dropdown change
         }
 
         // Initialize dropdown items click handlers
@@ -673,7 +875,11 @@
         }
 
         // Add to DOMContentLoaded
-        document.addEventListener('DOMContentLoaded', initDropdown);
+        document.addEventListener('DOMContentLoaded', () => {
+            initDropdown();
+            loadDraft(); // Load saved data
+            initAutoSave(); // Start listening for changes
+        });
 
         const selectedToolsWrapper = new Set(); // Use a Set to track selections
 
@@ -681,27 +887,43 @@
             // Toggle selection
             if (element.classList.contains('selected')) {
                 element.classList.remove('selected');
+                element.classList.remove('border-purple-600', 'bg-purple-50'); // Remove active styles
                 selectedToolsWrapper.delete(toolName);
+
+                // Hide checkmark
+                const checkmark = element.querySelector('.checkmark');
+                if (checkmark) checkmark.classList.add('hidden');
+
             } else {
                 element.classList.add('selected');
+                element.classList.add('border-purple-600', 'bg-purple-50'); // Add active styles
                 selectedToolsWrapper.add(toolName);
+
+                // Show checkmark
+                const checkmark = element.querySelector('.checkmark');
+                if (checkmark) checkmark.classList.remove('hidden');
             }
 
             // Update hidden input with array of selected values
             const selectedArray = Array.from(selectedToolsWrapper);
             document.getElementById('desiredToolInput').value = JSON.stringify(selectedArray);
 
+            saveDraft(); // Save on tool selection
+
             // Hide validation error if shown
             const errorEl = document.getElementById('step3Error');
             if (selectedArray.length > 0 && errorEl) errorEl.classList.add('hidden');
 
-            // Toggle other tool input field
-            const otherToolDiv = document.getElementById('otherToolDiv');
-            if (selectedToolsWrapper.has('Other')) {
-                otherToolDiv.classList.remove('hidden');
-                document.getElementById('otherToolInput').focus();
-            } else {
-                otherToolDiv.classList.add('hidden');
+            // Toggle other tool input field (Integrated)
+            if (toolName === 'Other') {
+                const inputWrapper = document.getElementById('otherToolInputWrapper');
+                if (selectedToolsWrapper.has('Other')) {
+                    inputWrapper.classList.remove('hidden');
+                    // Add small delay to ensure transition works or just focus
+                    setTimeout(() => document.getElementById('otherToolInput').focus(), 50);
+                } else {
+                    inputWrapper.classList.add('hidden');
+                }
             }
         }
 
@@ -798,8 +1020,9 @@
                     document.querySelectorAll('.step-content').forEach(el => el.classList.add('hidden'));
                     document.getElementById('successStep').classList.remove('hidden');
 
-                    // Set LocalStorage Flag
+                    // Set LocalStorage Flag & Clear Draft
                     localStorage.setItem('aiEmpireSurveySubmitted', 'true');
+                    localStorage.removeItem('aiEmpireSurveyDraft'); // CLEAR DRAFT
 
                     // Set dynamic success message
                     document.getElementById('successMessage').innerHTML = `
@@ -869,8 +1092,9 @@
                     document.querySelectorAll('.step-content').forEach(el => el.classList.add('hidden'));
                     document.getElementById('successStep').classList.remove('hidden');
 
-                    // Set LocalStorage Flag
+                    // Set LocalStorage Flag & Clear Draft
                     localStorage.setItem('aiEmpireSurveySubmitted', 'true');
+                    localStorage.removeItem('aiEmpireSurveyDraft'); // CLEAR DRAFT
 
                     // Set dynamic success message (no email version)
                     document.getElementById('successMessage').innerHTML = `
