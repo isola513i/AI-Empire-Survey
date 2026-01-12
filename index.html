@@ -82,7 +82,7 @@
 <body class="text-slate-700 min-h-screen flex flex-col items-center justify-center p-2 sm:p-4 md:p-6 bg-slate-50">
 
     <div
-        class="w-full max-w-lg md:max-w-xl lg:max-w-2xl bg-white rounded-2xl sm:rounded-3xl shadow-xl overflow-hidden relative min-h-[500px] sm:min-h-[600px] md:min-h-[650px] lg:min-h-[700px] flex flex-col">
+        class="w-full max-w-lg md:max-w-xl lg:max-w-2xl bg-white rounded-2xl sm:rounded-3xl shadow-lg border border-slate-100 overflow-hidden relative min-h-[500px] sm:min-h-[600px] md:min-h-[650px] lg:min-h-[700px] flex flex-col">
 
         <!-- Header & Progress -->
         <div class="px-4 sm:px-6 md:px-8 lg:px-10 pt-4 sm:pt-6 md:pt-8 pb-3 sm:pb-4 bg-white z-10">
@@ -137,7 +137,7 @@
                     Build Your Business</p>
 
                 <!-- Promotional Caption -->
-                <div class="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed mb-3 sm:mb-4 px-2">
+                <div class="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed mb-3 sm:mb-4 px-2">
                     <p class="mb-1 sm:mb-2 font-semibold">โลกถล่มด้วย AI...</p>
                     <p class="mb-1 sm:mb-2">ธุรกิจที่ใช้แรงงานคนแบบเดิมจะค่อยๆ หายไป</p>
                     <p class="font-semibold text-slate-700">คุณจะปรับตัวหรือจะถูกทิ้งไว้ข้างหลัง</p>
@@ -145,9 +145,9 @@
 
                 <!-- Special Invitation Badge (Updated to Thank You) -->
                 <div
-                    class="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-xl p-2 sm:p-3 md:p-4 mb-3 sm:mb-4 mx-2">
-                    <p class="text-amber-700 font-semibold text-[10px] sm:text-xs md:text-sm mb-1">🙏 ขอขอบคุณ</p>
-                    <p class="text-slate-600 text-[10px] sm:text-[11px] md:text-sm leading-relaxed">
+                    class="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-xl p-3 sm:p-4 mb-3 sm:mb-4 mx-2">
+                    <p class="text-amber-700 font-semibold text-xs sm:text-sm md:text-base mb-1">🙏 ขอขอบคุณ</p>
+                    <p class="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed">
                         ขอบคุณทุกท่านที่มาร่วมงานในวันนี้<br>
                         ทางเราอยากรบกวนเวลาสั้นๆ ทำแบบสอบถาม<br>
                         <span class="text-amber-600 font-medium">เพื่อรับ Template และสิทธิพิเศษ</span>
@@ -165,115 +165,188 @@
                 </div>
             </div>
 
-            <!-- Step 2: Feedback -->
+            <!-- Step 2: Feedback (Redesigned with Stars) -->
             <div id="step2" class="step-content hidden fade-in py-2 md:py-4 flex flex-col">
-                <h2 class="text-lg sm:text-xl md:text-2xl font-bold text-slate-800 mb-1">ให้คะแนนงานนี้</h2>
-                <p class="text-slate-500 text-xs sm:text-sm md:text-base mb-2">กรุณาให้คะแนนความพึงพอใจในแต่ละด้าน</p>
+                <div class="mb-4">
+                    <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-slate-800 mb-2">ให้คะแนนงานนี้</h2>
+                    <p class="text-slate-500 text-base">แตะที่ดาวเพื่อลงคะแนน</p>
+                </div>
+
                 <!-- Validation Message -->
-                <p id="step2Error" class="text-red-500 text-xs sm:text-sm mb-3 sm:mb-4 hidden">⚠️
-                    กรุณาให้คะแนนทุกข้อก่อนดำเนินการต่อ</p>
+                <p id="step2Error"
+                    class="text-red-500 text-sm mb-4 hidden bg-red-50 p-3 rounded-xl border border-red-100">⚠️
+                    กรุณาให้คะแนนให้ครบทุกข้อครับ</p>
 
                 <!-- Rating Questions -->
-                <div class="space-y-5 flex-grow">
+                <div class="space-y-6 flex-grow">
 
                     <!-- Rating 1: Overall Satisfaction -->
-                    <div class="bg-slate-50 rounded-xl p-4">
-                        <p class="text-sm font-medium text-slate-700 mb-3">ความพึงพอใจโดยรวมในงานนี้</p>
-                        <div class="flex justify-between gap-2" id="rating1Container">
-                            <button type="button"
-                                class="rating-btn flex-1 py-2 rounded-lg border-2 border-slate-200 text-slate-500 text-sm font-medium hover:border-blue-400 hover:text-blue-600 transition-all"
-                                data-group="rating1" data-value="1">1</button>
-                            <button type="button"
-                                class="rating-btn flex-1 py-2 rounded-lg border-2 border-slate-200 text-slate-500 text-sm font-medium hover:border-blue-400 hover:text-blue-600 transition-all"
-                                data-group="rating1" data-value="2">2</button>
-                            <button type="button"
-                                class="rating-btn flex-1 py-2 rounded-lg border-2 border-slate-200 text-slate-500 text-sm font-medium hover:border-blue-400 hover:text-blue-600 transition-all"
-                                data-group="rating1" data-value="3">3</button>
-                            <button type="button"
-                                class="rating-btn flex-1 py-2 rounded-lg border-2 border-slate-200 text-slate-500 text-sm font-medium hover:border-blue-400 hover:text-blue-600 transition-all"
-                                data-group="rating1" data-value="4">4</button>
-                            <button type="button"
-                                class="rating-btn flex-1 py-2 rounded-lg border-2 border-slate-200 text-slate-500 text-sm font-medium hover:border-blue-400 hover:text-blue-600 transition-all"
-                                data-group="rating1" data-value="5">5</button>
-                        </div>
-                        <div class="flex justify-between text-xs text-slate-400 mt-2">
-                            <span>น้อย</span>
-                            <span>มาก</span>
+                    <div id="q_rating1" class="transition-all duration-500 ease-out opacity-100">
+                        <p class="text-lg font-semibold text-slate-700 mb-3">1. ภาพรวมงานวันนี้</p>
+                        <div class="flex gap-2 justify-center sm:justify-start" id="rating1Container">
+                            <!-- Stars generated by helper or static -->
+                            <button type="button" onclick="rate('rating1', 1)"
+                                class="star-btn transition-transform hover:scale-110 focus:outline-none text-slate-200 hover:text-yellow-400"
+                                data-value="1">
+                                <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </button>
+                            <button type="button" onclick="rate('rating1', 2)"
+                                class="star-btn transition-transform hover:scale-110 focus:outline-none text-slate-200 hover:text-yellow-400"
+                                data-value="2">
+                                <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </button>
+                            <button type="button" onclick="rate('rating1', 3)"
+                                class="star-btn transition-transform hover:scale-110 focus:outline-none text-slate-200 hover:text-yellow-400"
+                                data-value="3">
+                                <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </button>
+                            <button type="button" onclick="rate('rating1', 4)"
+                                class="star-btn transition-transform hover:scale-110 focus:outline-none text-slate-200 hover:text-yellow-400"
+                                data-value="4">
+                                <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </button>
+                            <button type="button" onclick="rate('rating1', 5)"
+                                class="star-btn transition-transform hover:scale-110 focus:outline-none text-slate-200 hover:text-yellow-400"
+                                data-value="5">
+                                <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </button>
                         </div>
                         <input type="hidden" id="rating1Input" value="0">
                     </div>
 
                     <!-- Rating 2: Content Quality -->
-                    <div class="bg-slate-50 rounded-xl p-4">
-                        <p class="text-sm font-medium text-slate-700 mb-3">คุณภาพเนื้อหาและความรู้ที่ได้รับ</p>
-                        <div class="flex justify-between gap-2" id="rating2Container">
-                            <button type="button"
-                                class="rating-btn flex-1 py-2 rounded-lg border-2 border-slate-200 text-slate-500 text-sm font-medium hover:border-blue-400 hover:text-blue-600 transition-all"
-                                data-group="rating2" data-value="1">1</button>
-                            <button type="button"
-                                class="rating-btn flex-1 py-2 rounded-lg border-2 border-slate-200 text-slate-500 text-sm font-medium hover:border-blue-400 hover:text-blue-600 transition-all"
-                                data-group="rating2" data-value="2">2</button>
-                            <button type="button"
-                                class="rating-btn flex-1 py-2 rounded-lg border-2 border-slate-200 text-slate-500 text-sm font-medium hover:border-blue-400 hover:text-blue-600 transition-all"
-                                data-group="rating2" data-value="3">3</button>
-                            <button type="button"
-                                class="rating-btn flex-1 py-2 rounded-lg border-2 border-slate-200 text-slate-500 text-sm font-medium hover:border-blue-400 hover:text-blue-600 transition-all"
-                                data-group="rating2" data-value="4">4</button>
-                            <button type="button"
-                                class="rating-btn flex-1 py-2 rounded-lg border-2 border-slate-200 text-slate-500 text-sm font-medium hover:border-blue-400 hover:text-blue-600 transition-all"
-                                data-group="rating2" data-value="5">5</button>
-                        </div>
-                        <div class="flex justify-between text-xs text-slate-400 mt-2">
-                            <span>น้อย</span>
-                            <span>มาก</span>
+                    <div id="q_rating2"
+                        class="transition-all duration-500 ease-out opacity-50 pointer-events-none filter blur-sm">
+                        <p class="text-lg font-semibold text-slate-700 mb-3">2. เนื้อหาความรู้</p>
+                        <div class="flex gap-2 justify-center sm:justify-start" id="rating2Container">
+                            <button type="button" onclick="rate('rating2', 1)"
+                                class="star-btn transition-transform hover:scale-110 focus:outline-none text-slate-200 hover:text-yellow-400"
+                                data-value="1">
+                                <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </button>
+                            <button type="button" onclick="rate('rating2', 2)"
+                                class="star-btn transition-transform hover:scale-110 focus:outline-none text-slate-200 hover:text-yellow-400"
+                                data-value="2">
+                                <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </button>
+                            <button type="button" onclick="rate('rating2', 3)"
+                                class="star-btn transition-transform hover:scale-110 focus:outline-none text-slate-200 hover:text-yellow-400"
+                                data-value="3">
+                                <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </button>
+                            <button type="button" onclick="rate('rating2', 4)"
+                                class="star-btn transition-transform hover:scale-110 focus:outline-none text-slate-200 hover:text-yellow-400"
+                                data-value="4">
+                                <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </button>
+                            <button type="button" onclick="rate('rating2', 5)"
+                                class="star-btn transition-transform hover:scale-110 focus:outline-none text-slate-200 hover:text-yellow-400"
+                                data-value="5">
+                                <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </button>
                         </div>
                         <input type="hidden" id="rating2Input" value="0">
                     </div>
 
                     <!-- Rating 3: AI Applicability -->
-                    <div class="bg-slate-50 rounded-xl p-4">
-                        <p class="text-sm font-medium text-slate-700 mb-3">สามารถนำ AI ไปใช้กับธุรกิจได้จริง</p>
-                        <div class="flex justify-between gap-2" id="rating3Container">
-                            <button type="button"
-                                class="rating-btn flex-1 py-2 rounded-lg border-2 border-slate-200 text-slate-500 text-sm font-medium hover:border-blue-400 hover:text-blue-600 transition-all"
-                                data-group="rating3" data-value="1">1</button>
-                            <button type="button"
-                                class="rating-btn flex-1 py-2 rounded-lg border-2 border-slate-200 text-slate-500 text-sm font-medium hover:border-blue-400 hover:text-blue-600 transition-all"
-                                data-group="rating3" data-value="2">2</button>
-                            <button type="button"
-                                class="rating-btn flex-1 py-2 rounded-lg border-2 border-slate-200 text-slate-500 text-sm font-medium hover:border-blue-400 hover:text-blue-600 transition-all"
-                                data-group="rating3" data-value="3">3</button>
-                            <button type="button"
-                                class="rating-btn flex-1 py-2 rounded-lg border-2 border-slate-200 text-slate-500 text-sm font-medium hover:border-blue-400 hover:text-blue-600 transition-all"
-                                data-group="rating3" data-value="4">4</button>
-                            <button type="button"
-                                class="rating-btn flex-1 py-2 rounded-lg border-2 border-slate-200 text-slate-500 text-sm font-medium hover:border-blue-400 hover:text-blue-600 transition-all"
-                                data-group="rating3" data-value="5">5</button>
-                        </div>
-                        <div class="flex justify-between text-xs text-slate-400 mt-2">
-                            <span>น้อย</span>
-                            <span>มาก</span>
+                    <div id="q_rating3"
+                        class="transition-all duration-500 ease-out opacity-50 pointer-events-none filter blur-sm">
+                        <p class="text-lg font-semibold text-slate-700 mb-3">3. การนำไปใช้จริง</p>
+                        <div class="flex gap-2 justify-center sm:justify-start" id="rating3Container">
+                            <button type="button" onclick="rate('rating3', 1)"
+                                class="star-btn transition-transform hover:scale-110 focus:outline-none text-slate-200 hover:text-yellow-400"
+                                data-value="1">
+                                <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </button>
+                            <button type="button" onclick="rate('rating3', 2)"
+                                class="star-btn transition-transform hover:scale-110 focus:outline-none text-slate-200 hover:text-yellow-400"
+                                data-value="2">
+                                <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </button>
+                            <button type="button" onclick="rate('rating3', 3)"
+                                class="star-btn transition-transform hover:scale-110 focus:outline-none text-slate-200 hover:text-yellow-400"
+                                data-value="3">
+                                <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </button>
+                            <button type="button" onclick="rate('rating3', 4)"
+                                class="star-btn transition-transform hover:scale-110 focus:outline-none text-slate-200 hover:text-yellow-400"
+                                data-value="4">
+                                <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </button>
+                            <button type="button" onclick="rate('rating3', 5)"
+                                class="star-btn transition-transform hover:scale-110 focus:outline-none text-slate-200 hover:text-yellow-400"
+                                data-value="5">
+                                <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </button>
                         </div>
                         <input type="hidden" id="rating3Input" value="0">
                     </div>
 
                 </div>
 
-                <div class="mt-auto flex gap-2 sm:gap-3 pt-3 sm:pt-4">
+                <div class="mt-auto flex gap-3 pt-6">
                     <button onclick="changeStep(1)"
-                        class="w-1/3 bg-slate-100 text-slate-600 py-2.5 sm:py-3 md:py-4 rounded-xl text-sm sm:text-base font-medium hover:bg-slate-200 transition">ย้อนกลับ</button>
-                    <button onclick="validateStep2()"
-                        class="w-2/3 bg-blue-600 text-white py-2.5 sm:py-3 md:py-4 rounded-xl text-sm sm:text-base font-medium shadow-md hover:bg-blue-700 transition">ถัดไป
-                        ➔</button>
+                        class="w-1/3 bg-slate-100 text-slate-600 py-3 rounded-xl font-medium hover:bg-slate-200 transition">ย้อนกลับ</button>
+                    <!-- Next Button -->
+                    <button onclick="validateStep2()" id="step2NextBtn"
+                        class="w-2/3 bg-blue-600 text-white rounded-xl text-lg font-bold shadow-lg shadow-blue-200 hover:shadow-xl hover:bg-blue-700 transition-all transform hover:-translate-y-0.5">
+                        ถัดไป ➔
+                    </button>
                 </div>
             </div>
 
             <!-- Step 3: Business Needs -->
             <div id="step3" class="step-content hidden fade-in py-2 md:py-4">
-                <h2 class="text-lg sm:text-xl md:text-2xl font-bold text-slate-800 mb-1">อยากให้ AI ช่วยเรื่องอะไร?</h2>
-                <p class="text-slate-500 text-xs sm:text-sm md:text-base mb-2">เลือกสิ่งที่ตรงกับธุรกิจคุณมากที่สุด</p>
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-slate-800 mb-2">อยากให้ AI ช่วยเรื่องอะไร?
+                </h2>
+                <p class="text-slate-500 text-sm sm:text-base mb-4">เลือกสิ่งที่ตรงกับธุรกิจคุณมากที่สุด</p>
                 <!-- Validation Message -->
-                <p id="step3Error" class="text-red-500 text-xs sm:text-sm mb-3 sm:mb-4 hidden">⚠️
+                <p id="step3Error" class="text-red-500 text-sm mb-3 sm:mb-4 hidden">⚠️
                     กรุณาเลือกประเภทธุรกิจก่อนดำเนินการต่อ</p>
 
                 <!-- Business Type Custom Dropdown -->
@@ -341,10 +414,10 @@
                     <label class="block text-sm font-medium text-slate-700 mb-3">อยากให้ AI ช่วยงานด้านไหน? <span
                             class="text-red-400">*</span> <span
                             class="text-slate-400 font-normal text-xs">(เลือกได้มากกว่า 1 ข้อ)</span></label>
-                    <div class="grid grid-cols-2 gap-3 sm:gap-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                         <!-- Card 1 -->
                         <div onclick="selectTool(this, 'ตอบแชทลูกค้า')"
-                            class="tool-card relative p-3 sm:p-4 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-purple-400 hover:bg-purple-50 transition-all group">
+                            class="tool-card relative p-3 sm:p-4 border border-slate-200 rounded-xl cursor-pointer hover:border-purple-400 hover:bg-purple-50 transition-all group">
                             <!-- Checkmark Badge -->
                             <div
                                 class="checkmark hidden absolute -top-2 -right-2 bg-purple-600 text-white rounded-full p-1 shadow-sm transform scale-90 sm:scale-100">
@@ -365,7 +438,7 @@
 
                         <!-- Card 2 -->
                         <div onclick="selectTool(this, 'นับสต็อกสินค้า')"
-                            class="tool-card relative p-3 sm:p-4 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-purple-400 hover:bg-purple-50 transition-all group">
+                            class="tool-card relative p-3 sm:p-4 border border-slate-200 rounded-xl cursor-pointer hover:border-purple-400 hover:bg-purple-50 transition-all group">
                             <div
                                 class="checkmark hidden absolute -top-2 -right-2 bg-purple-600 text-white rounded-full p-1 shadow-sm transform scale-90 sm:scale-100">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 sm:h-4 sm:w-4"
@@ -385,7 +458,7 @@
 
                         <!-- Card 3 -->
                         <div onclick="selectTool(this, 'จองคิวอัตโนมัติ')"
-                            class="tool-card relative p-3 sm:p-4 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-purple-400 hover:bg-purple-50 transition-all group">
+                            class="tool-card relative p-3 sm:p-4 border border-slate-200 rounded-xl cursor-pointer hover:border-purple-400 hover:bg-purple-50 transition-all group">
                             <div
                                 class="checkmark hidden absolute -top-2 -right-2 bg-purple-600 text-white rounded-full p-1 shadow-sm transform scale-90 sm:scale-100">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 sm:h-4 sm:w-4"
@@ -405,7 +478,7 @@
 
                         <!-- Card 4 -->
                         <div onclick="selectTool(this, 'สรุปยอดขาย')"
-                            class="tool-card relative p-3 sm:p-4 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-purple-400 hover:bg-purple-50 transition-all group">
+                            class="tool-card relative p-3 sm:p-4 border border-slate-200 rounded-xl cursor-pointer hover:border-purple-400 hover:bg-purple-50 transition-all group">
                             <div
                                 class="checkmark hidden absolute -top-2 -right-2 bg-purple-600 text-white rounded-full p-1 shadow-sm transform scale-90 sm:scale-100">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 sm:h-4 sm:w-4"
@@ -425,7 +498,7 @@
 
                         <!-- Other Tool (Integrated Input) -->
                         <div onclick="selectTool(this, 'Other')" id="otherToolCard"
-                            class="tool-card relative col-span-2 p-3 sm:p-4 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-purple-400 hover:bg-purple-50 transition-all group flex flex-col items-center justify-center min-h-[80px]">
+                            class="tool-card relative col-span-2 p-3 sm:p-4 border border-slate-200 rounded-xl cursor-pointer hover:border-purple-400 hover:bg-purple-50 transition-all group flex flex-col items-center justify-center min-h-[80px]">
 
                             <div
                                 class="checkmark hidden absolute -top-2 -right-2 bg-purple-600 text-white rounded-full p-1 shadow-sm transform scale-90 sm:scale-100">
@@ -480,14 +553,13 @@
                         class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-gradient-to-br from-green-100 to-emerald-100 text-green-500 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl shadow-sm">
                         🙏
                     </div>
-                    <h2 class="text-lg sm:text-xl md:text-2xl font-bold text-slate-800 mb-1 sm:mb-2">ขอบคุณสำหรับคำตอบ!
+                    <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-slate-800 mb-2">ขอบคุณสำหรับคำตอบ!
                     </h2>
-                    <p class="text-slate-500 text-xs sm:text-sm md:text-base">เกือบเสร็จแล้ว อีกนิดเดียว...</p>
+                    <p class="text-slate-500 text-sm sm:text-base">เกือบเสร็จแล้ว อีกนิดเดียว...</p>
                 </div>
 
                 <div class="flex-grow">
-                    <label
-                        class="block text-xs sm:text-sm md:text-base font-medium text-slate-700 mb-2">ข้อเสนอแนะเพิ่มเติม
+                    <label class="block text-sm sm:text-base font-medium text-slate-700 mb-2">ข้อเสนอแนะเพิ่มเติม
                         <span class="text-slate-400 font-normal">(ไม่บังคับ)</span></label>
                     <textarea id="additionalFeedback" rows="4"
                         class="w-full p-2.5 sm:p-3 md:p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none text-base sm:text-sm md:text-base resize-none"
@@ -511,8 +583,8 @@
                         class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-100 to-purple-100 text-blue-600 rounded-2xl flex items-center justify-center mb-3 sm:mb-4 text-3xl sm:text-4xl shadow-sm transform rotate-3">
                         🎁
                     </div>
-                    <h2 class="text-lg sm:text-xl font-bold text-slate-800 mb-2">รับของขวัญพิเศษ!</h2>
-                    <p class="text-slate-500 text-xs sm:text-sm mb-4 max-w-xs mx-auto leading-relaxed">
+                    <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-slate-800 mb-2">รับของขวัญพิเศษ!</h2>
+                    <p class="text-slate-500 text-sm sm:text-base mb-4 max-w-xs mx-auto leading-relaxed">
                         กรอกอีเมลเพื่อรับ <strong>Template ระบบ AI</strong><br>
                         ส่งตรงเข้า Inbox ทันที ฟรี!
                     </p>
@@ -526,7 +598,7 @@
                             </svg>
                         </div>
                         <input type="email" id="emailInput"
-                            class="w-full pl-10 p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none text-base sm:text-sm placeholder-slate-400 text-slate-700"
+                            class="w-full pl-10 p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none text-base placeholder-slate-400 text-slate-700"
                             placeholder="you@email.com" onkeypress="handleEnter(event, 'submit')">
                     </div>
                     <!-- Validation Message -->
@@ -616,37 +688,63 @@
             document.getElementById('progressBar').style.width = `${percentage}%`;
         }
 
-        // Logic Step 2 (Numbered Rating Buttons)
-        function initRatings() {
-            const ratingButtons = document.querySelectorAll('.rating-btn');
+        // Logic Step 2 (Star Ratings & Auto-advance)
+        function rate(group, value) {
+            // Update Input
+            document.getElementById(`${group}Input`).value = value;
 
-            ratingButtons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const group = btn.dataset.group;
-                    const value = btn.dataset.value;
+            // Update Visuals (Stars)
+            const container = document.getElementById(`${group}Container`);
+            const stars = container.querySelectorAll('.star-btn');
 
-                    // Update hidden input
-                    document.getElementById(`${group}Input`).value = value;
+            stars.forEach(btn => {
+                const starVal = parseInt(btn.dataset.value);
+                const svg = btn.querySelector('svg');
 
-                    // Update button styles for this group
-                    document.querySelectorAll(`[data-group="${group}"]`).forEach(groupBtn => {
-                        groupBtn.classList.remove('border-blue-500', 'bg-blue-500', 'text-white');
-                        groupBtn.classList.add('border-slate-200', 'text-slate-500');
-                    });
-
-                    // Highlight selected button
-                    btn.classList.remove('border-slate-200', 'text-slate-500');
-                    btn.classList.add('border-blue-500', 'bg-blue-500', 'text-white');
-
-                    // Hide validation error if shown
-                    const errorEl = document.getElementById('step2Error');
-                    if (errorEl) errorEl.classList.add('hidden');
-                });
+                if (starVal <= value) {
+                    // Filled Star (Yellow)
+                    btn.classList.remove('text-slate-200');
+                    btn.classList.add('text-yellow-400');
+                    btn.style.transform = 'scale(1.1)';
+                    setTimeout(() => btn.style.transform = 'scale(1)', 200);
+                } else {
+                    // Empty Star
+                    btn.classList.add('text-slate-200');
+                    btn.classList.remove('text-yellow-400');
+                }
             });
+
+            // Hide Error if any
+            document.getElementById('step2Error').classList.add('hidden');
+
+            // Auto-advance Logic
+            if (group === 'rating1') {
+                const nextQ = document.getElementById('q_rating2');
+                nextQ.classList.remove('opacity-50', 'pointer-events-none', 'filter', 'blur-sm');
+                // Smooth scroll to next question after short delay
+                setTimeout(() => {
+                    nextQ.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+            } else if (group === 'rating2') {
+                const nextQ = document.getElementById('q_rating3');
+                nextQ.classList.remove('opacity-50', 'pointer-events-none', 'filter', 'blur-sm');
+                setTimeout(() => {
+                    nextQ.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+            } else if (group === 'rating3') {
+                // Highlight Next Button Animation Only - Do NOT Change Color
+                const nextBtn = document.getElementById('step2NextBtn');
+                nextBtn.classList.add('scale-105');
+                setTimeout(() => nextBtn.classList.remove('scale-105'), 200);
+            }
+
+            saveDraft(); // Auto-save on interaction
         }
 
-        // Initialize ratings on page load
-        document.addEventListener('DOMContentLoaded', initRatings);
+        // Initialize ratings on page load (Recover state)
+        document.addEventListener('DOMContentLoaded', () => {
+            // We will handle state recovery in loadDraft
+        });
 
         // Initialize Dropdown and Check LocalStorage
         document.addEventListener('DOMContentLoaded', function () {
@@ -759,13 +857,37 @@
                 // Assuming updateRating is a function that visually updates the rating buttons
                 // If not, we need to simulate clicks or directly manipulate classes
                 // For now, let's assume a helper `updateRating` or we'll manually update
+                // Restore UI - Step 2 (Stars)
                 ['rating1', 'rating2', 'rating3'].forEach(id => {
                     const val = draft[id];
-                    if (val && val !== '0') { // Only update if a value was selected
-                        const btn = document.querySelector(`[data-group="${id}"][data-value="${val}"]`);
-                        if (btn) {
-                            // Simulate click to trigger existing logic
-                            btn.click();
+                    if (val && val !== '0') {
+                        // Call rate() directly to update UI and logic
+                        // We pass the id (e.g., 'rating1') and the value
+                        // But wait, rate() triggers scroll. We might NOT want auto-scroll on loadDraft.
+                        // Let's manually update UI without scroll or modification to rate function
+
+                        // Actually, reusing rate() is fine, but it might be jarring if it scrolls.
+                        // Better to manually highlight stars.
+
+                        document.getElementById(`${id}Input`).value = val;
+                        const container = document.getElementById(`${id}Container`);
+                        const stars = container.querySelectorAll('.star-btn');
+                        stars.forEach(btn => {
+                            const starVal = parseInt(btn.dataset.value);
+                            if (starVal <= val) {
+                                btn.classList.remove('text-slate-200');
+                                btn.classList.add('text-yellow-400');
+                            } else {
+                                btn.classList.add('text-slate-200');
+                                btn.classList.remove('text-yellow-400');
+                            }
+                        });
+
+                        // Also unblur the next question
+                        if (id === 'rating1') {
+                            document.getElementById('q_rating2').classList.remove('opacity-50', 'pointer-events-none', 'filter', 'blur-sm');
+                        } else if (id === 'rating2') {
+                            document.getElementById('q_rating3').classList.remove('opacity-50', 'pointer-events-none', 'filter', 'blur-sm');
                         }
                     }
                 });
